@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Receitas</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <h1>🍳 Buscador de Receitas</h1>
+    </header>
+
+    <main class="container">
+        <section class="search-card card">
+            <h2>Busque sua Receita</h2>
+            <div class="search-input-group">
+                <input type="text" id="searchInput" placeholder="..." class="search-input">
+                <button id="searchButton" class="btn btn-primary">Buscar</button>
+            </div>
+            <div id="suggestions-container" class="suggestions-container">
+                </div>
+        </section>
+
+        <section class="results-container">
+            <div id="results-list" class="results-list">
+                <p>Busque por um prato para começar!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Dados fornecidos por TheMealDB</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+:root {
+    --primary-color: #D32F2F; /* Vermelho vibrante (Santa Cruz!) */
+    --secondary-color: #FFD700; /* Amarelo dourado */
+    --background-color: #F5F5F5; /* Branco muito claro */
+    --card-bg-color: #FFFFFF; /* Branco puro */
+    --text-color: #333333; /* Texto escuro */
+    --placeholder-color: #9E9E9E; /* Cinza para placeholder */
+    --border-color: #E0E0E0; /* Borda cinza clara */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-color: #E57373; /* Vermelho mais claro para hover */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: var(--primary-color); /* Fundo vermelho */
+    color: var(--card-bg-color); /* Texto branco */
+    padding: 1.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    color: var(--secondary-color); /* Título em amarelo */
+    letter-spacing: 1px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    flex-grow: 1;
+}
+
+.card {
+    background-color: var(--card-bg-color);
+    border-radius: 12px; /* Cantos mais arredondados */
+    padding: 2.5rem; /* Mais espaçamento interno */
+    box-shadow: 0 6px 15px var(--shadow-color); /* Sombra mais suave */
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color); /* Borda sutil */
+}
+
+.card h2 {
+    text-align: center;
+    margin-bottom: 1.8rem;
+    color: var(--primary-color); /* Título em vermelho */
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.search-input-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 1.2rem; /* Mais padding */
+    border: 2px solid var(--border-color); /* Borda mais visível */
+    border-radius: 8px; /* Cantos arredondados */
+    font-size: 1.1rem;
+    color: var(--text-color);
+    transition: border-color 0.2s;
+}
+
+.search-input:focus {
+    border-color: var(--primary-color); /* Borda vermelha ao focar */
+    outline: none; /* Remove o outline padrão */
+}
+
+.search-input::placeholder {
+    color: var(--placeholder-color);
+}
+
+.btn-primary {
+    padding: 1rem 2rem; /* Mais padding */
+    border: none;
+    border-radius: 8px; /* Cantos arredondados */
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s;
+    background-color: var(--primary-color); /* Botão vermelho */
+    color: var(--card-bg-color); /* Texto branco */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-color); /* Vermelho mais claro no hover */
+    transform: translateY(-2px); /* Efeito de elevação */
+}
+
+.suggestions-container {
+    position: relative;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.suggestions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    left: 0;
+    right: 0;
+}
+
+.suggestion-item {
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.suggestion-item:hover {
+    background-color: #F0F4F8; /* Um cinza/branco suave para hover */
+    color: var(--primary-color); /* Texto em vermelho no hover */
+}
+
+.suggestion-item:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.results-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Cards um pouco maiores */
+    gap: 25px; /* Espaço maior entre os cards */
+    padding-top: 1rem;
+}
+
+.recipe-card {
+    background-color: var(--card-bg-color);
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 180px; /* Imagens maiores */
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.recipe-card h3 {
+    font-size: 1.1rem;
+    margin: 1rem 0.8rem;
+    color: var(--primary-color); /* Título da receita em vermelho */
+    font-weight: 700;
+}
+
+.footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    margin-top: 3rem;
+    background-color: var(--card-bg-color); /* Fundo branco para o rodapé */
+    box-shadow: 0 -2px 8px var(--shadow-color);
+}
+
+@media (min-width: 600px) {
+    .search-input-group {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1.5rem; /* Mais espaço entre input e botão */
+    }
+    .search-input {
+        flex-grow: 1;
+        max-width: 350px; /* Campo de busca um pouco mais largo */
+    }
+    .btn-primary {
+        width: auto;
+        max-width: none;
+    }
+    .suggestions-list {
+        left: initial;
+        right: initial;
+        width: calc(100% - 1.5rem - 200px); /* Ajusta largura da sugestão */
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 599px) {
+    .card {
+        padding: 1.5rem;
+    }
+    .card h2 {
+        font-size: 1.5rem;
+    }
+    .header h1 {
+        font-size: 1.8rem;
+    }
+}
